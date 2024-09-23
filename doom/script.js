@@ -41,7 +41,7 @@ btnScrollTo.addEventListener('click', e => {
 });
 
 /*
-
+ gammal browser tec
 document.querySelectorAll('.nav__link').forEach(el => {
   el.addEventListener('click', function (e) {
     e.preventDefault();
@@ -65,68 +65,28 @@ document.querySelector('.nav__links').addEventListener('click', function (e) {
   }
 });
 
-///////////////////////////
-///////////////////////////
-// styles
+// tabbar operations
 
-/*
-message.style.backgroundColor = '#706c5f';
-message.style.borderRadius = '8px';
-message.style.color = '#FFFFFF';
-message.style.width = '120%';
+const tabs = document.querySelectorAll('.operations__tab');
+const tabsContanier = document.querySelector('.operations__tab-container');
+const tabContent = document.querySelectorAll('.operations__content');
 
-message.style.height =
-  Number.parseFloat(getComputedStyle(message).height, 10) + 10 + 'px';
+tabsContanier.addEventListener('click', e => {
+  const clicked = e.target.closest('.operations__tab');
 
-const logo = document.querySelector('.nav__logo');
+  if (!clicked) return;
 
-const link = document.querySelector('.twitter-link');
-*/
-/*
-const h1 = document.querySelector('h1');
+  // active tab
+  tabs.forEach(tab => tab.classList.remove('operations__tab--active'));
+  tabContent.forEach(tab =>
+    tab.classList.remove('operations__content--active')
+  );
 
-const alertH1 = () => {
-  alert('mouse');
-  h1.removeEventListener('mouseenter', alertH1);
-};
+  clicked.classList.add('operations__tab--active');
 
-h1.addEventListener('mouseenter', alertH1);
-*/
-/*
-const randomInts = function (min, max) {
-  return Math.floor(Math.random() * (max - min + 1) + min);
-};
+  // active content
 
-const randomColor = () =>
-  `rgb(${randomInts(0, 255)},${randomInts(0, 255)},${randomInts(0, 255)})`;
-
-document.querySelector('.nav__link').addEventListener('click', function (e) {
-  this.style.backgroundColor = randomColor();
+  document
+    .querySelector(`.operations__content--${clicked.dataset.tab}`)
+    .classList.add('operations__content--active');
 });
-document.querySelector('.nav__links').addEventListener('click', function () {
-  this.style.backgroundColor = randomColor();
-});
-
-document.querySelector('.nav').addEventListener('click', function () {
-  this.style.backgroundColor = randomColor();
-});
-
-
-const header = document.querySelector('header');
-
-const message = document.createElement('div');
-message.classList.add('cookie-message');
-//message.textContent = 'We use coockies for learning purpose'
-message.innerHTML =
-  'We use coockies for learning purpose  marawwaa <button class="btn btn--close-cookie">Got it!</button> ';
-header.append(message);
-//header.append(message)
-
-//header.append(message.cloneNode(true));
-
-// delete element
-
-document.querySelector('.btn--close-cookie').addEventListener('click', () => {
-  message.remove();
-});
-*/
