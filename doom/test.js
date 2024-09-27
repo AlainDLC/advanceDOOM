@@ -91,3 +91,31 @@ console.log(h1.parentElement.children);
   if (el !== h1) el.style.transform = 'scale(1.5)';
 });
 */
+
+/*
+const initialCord = section1.getBoundingClientRect();
+
+window.addEventListener('scroll', () => {
+  if (this.window.scrollY > initialCord.top) nav.classList.add('sticky');
+  else nav.classList.remove('sticky');
+});
+*/
+
+// InsterSection Observer API
+/*
+const section1 = document.querySelector('#section--1');
+
+const obsCallabck = function (entries, obser) {
+  entries.forEach(entry => {
+    console.log(entry);
+  });
+};
+
+const obsOptions = {
+  root: null,
+  threshold: [0, 0.2],
+};
+
+const observer = new IntersectionObserver(obsCallabck, obsOptions);
+observer.observe(section1);
+*/
