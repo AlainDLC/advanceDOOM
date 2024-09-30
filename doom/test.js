@@ -119,3 +119,7 @@ const obsOptions = {
 const observer = new IntersectionObserver(obsCallabck, obsOptions);
 observer.observe(section1);
 */
+
+document.addEventListener('DOMContentLoaded', e => {
+  console.log('HTL PARSE', e);
+});
